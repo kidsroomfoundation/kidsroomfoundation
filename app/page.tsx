@@ -14,7 +14,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
             <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-            <AdBanner slot="pub-8150475435765548" className="min-h-[250px]" />
+            <AdBanner slot="8150475435765548" className="min-h-[250px]" />
           </div>
         </div>
       </section>
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
             <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-            <AdBanner slot="pub-8150475435765548" className="min-h-[250px]" />
+            <AdBanner slot="8150475435765548" className="min-h-[250px]" />
           </div>
         </div>
       </section>
@@ -38,7 +38,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
             <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-            <AdBanner slot="pub-8150475435765548" className="min-h-[250px]" />
+            <AdBanner slot="8150475435765548" className="min-h-[250px]" />
           </div>
         </div>
       </section>
