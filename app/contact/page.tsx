@@ -4,11 +4,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Send, MessageSquare, Clock, CheckCircle } from 'lucide-react'
 
-export const metadata = {
-  title: 'Contact Us - Kids Room Foundation',
-  description: 'Get in touch with Kids Room Foundation. We would love to hear from you.',
-}
-
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
