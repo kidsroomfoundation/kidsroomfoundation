@@ -31,7 +31,6 @@ const CRYPTO_OPTIONS = [
     color: '#627EEA',
     address: WALLET_ADDRESSES.eth,
     chain: 'ERC20',
-    evm: true,
     presets: ['0.01', '0.05', '0.1', '0.5', '1', '5'],
   },
   {
@@ -42,7 +41,6 @@ const CRYPTO_OPTIONS = [
     color: '#F7931A',
     address: WALLET_ADDRESSES.btc,
     chain: 'Bitcoin',
-    evm: false,
     presets: ['0.001', '0.005', '0.01', '0.05', '0.1', '0.5'],
   },
   {
@@ -53,7 +51,6 @@ const CRYPTO_OPTIONS = [
     color: '#14F195',
     address: WALLET_ADDRESSES.sol,
     chain: 'Solana',
-    evm: false,
     presets: ['0.1', '0.5', '1', '5', '10', '50'],
   },
   {
@@ -64,7 +61,6 @@ const CRYPTO_OPTIONS = [
     color: '#26A17B',
     address: WALLET_ADDRESSES.usdt_erc20,
     chain: 'ERC20',
-    evm: true,
     presets: ['10', '25', '50', '100', '500', '1000'],
   },
   {
@@ -75,7 +71,6 @@ const CRYPTO_OPTIONS = [
     color: '#FF060A',
     address: WALLET_ADDRESSES.usdt_trc20,
     chain: 'TRC20',
-    evm: false,
     presets: ['10', '25', '50', '100', '500', '1000'],
   },
   {
@@ -86,7 +81,6 @@ const CRYPTO_OPTIONS = [
     color: '#2775CA',
     address: WALLET_ADDRESSES.usdc_erc20,
     chain: 'ERC20',
-    evm: true,
     presets: ['10', '25', '50', '100', '500', '1000'],
   },
 ]
