@@ -39,7 +39,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { icon: Twitter, href: '#', label: 'Twitter' },
+                { icon: Twitter, href: 'https://x.com/kidsroomfund', label: 'Twitter' },
                 { icon: MessageCircle, href: '#', label: 'Discord' },
                 { icon: Github, href: '#', label: 'GitHub' },
                 { icon: Mail, href: 'mailto:hello@kidsroomfoundation.com', label: 'Email' },
