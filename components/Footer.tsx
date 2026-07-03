@@ -1,12 +1,16 @@
 'use client'
 
-import { Heart, Github, Twitter, MessageCircle, Mail } from 'lucide-react'
+import { Heart, Github, Twitter, MessageCircle, Mail, ArrowUp } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <footer className="bg-earth-900 text-earth-300">
+    <footer className="bg-earth-900 text-earth-300 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
@@ -112,6 +116,14 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      <button
+        onClick={scrollToTop}
+        className="absolute bottom-8 right-8 w-12 h-12 bg-coral-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-coral-700 transition-colors"
+        aria-label="Back to top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
     </footer>
   )
 }
