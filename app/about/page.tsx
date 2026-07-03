@@ -53,7 +53,7 @@ const programs = [
 ]
 
 const partners = [
-  'UNICEF', 'Save the Children', 'Red Cross', 'World Vision', 'Crypto Relief', 'Gitcoin'
+  'UNICEF', 'Save the Children', 'Red Cross', 'World Vision', 'Crypto Relief', 'Bitcoin'
 ]
 
 export const metadata = {
