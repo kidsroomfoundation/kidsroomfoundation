@@ -103,12 +103,11 @@ export default function ImpactStats() {
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-earth-800">
-                Recent Donations
+                Recent Activity
               </h3>
-              <div className="flex items-center gap-2 text-coral-500">
-                <div className="w-2 h-2 bg-coral-500 rounded-full animate-pulse" />
-                <span className="text-sm font-medium">Live</span>
-              </div>
+              <span className="text-xs text-earth-400 bg-earth-50 px-3 py-1 rounded-full">
+                Demo Data
+              </span>
             </div>
             <div className="space-y-4">
               {recentDonations.map((donation, index) => (
