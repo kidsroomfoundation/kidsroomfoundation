@@ -89,7 +89,7 @@ export default function NewsPage() {
         {/* Ad Banner - Top of News */}
         <div className="mb-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
           <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-          <AdBanner slot="pub-8150475435765548" className="min-h-[250px]" />
+          <AdBanner slot="8150475435765548" className="min-h-[250px]" />
         </div>
 
         {featuredArticle && (
@@ -138,7 +138,7 @@ export default function NewsPage() {
         {/* Ad Banner - Between Featured and Grid */}
         <div className="mb-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
           <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-          <AdBanner slot="pub-8150475435765548" className="min-h-[250px]" />
+          <AdBanner slot="8150475435765548" className="min-h-[250px]" />
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -175,7 +175,7 @@ export default function NewsPage() {
         {/* Ad Banner - Bottom of News */}
         <div className="mt-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
           <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-          <AdBanner slot="pub-8150475435765548" className="min-h-[250px]" />
+          <AdBanner slot="8150475435765548" className="min-h-[250px]" />
         </div>
       </div>
     </div>
