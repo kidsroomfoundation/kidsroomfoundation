@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion'
 import { Newspaper, Calendar, ArrowRight, Clock } from 'lucide-react'
-import Link from 'next/link'
 import Image from 'next/image'
 
 const newsArticles = [
@@ -72,12 +70,7 @@ export default function NewsPage() {
   return (
     <div className="pt-24 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-50 border border-coral-200 mb-6">
             <Newspaper className="w-4 h-4 text-coral-500" />
             <span className="text-sm font-medium text-coral-700">
@@ -90,15 +83,10 @@ export default function NewsPage() {
           <p className="text-lg text-earth-600 max-w-2xl mx-auto">
             Stories, updates, and insights from our mission to help children worldwide.
           </p>
-        </motion.div>
+        </div>
 
         {featuredArticle && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-12 bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 overflow-hidden"
-          >
+          <div className="mb-12 bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 overflow-hidden">
             <div className="grid md:grid-cols-2">
               <div className="bg-gradient-to-br from-coral-100 to-earth-100 p-12 flex items-center justify-center">
                 <div className="relative w-32 h-32">
@@ -137,16 +125,13 @@ export default function NewsPage() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {regularArticles.map((article, index) => (
-            <motion.article
+          {regularArticles.map((article) => (
+            <article
               key={article.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className="bg-white rounded-3xl shadow-lg shadow-earth-100/50 border border-coral-100/50 p-6 hover:shadow-xl transition-all hover:-translate-y-1"
             >
               <div className="flex items-center gap-3 mb-4">
@@ -170,7 +155,7 @@ export default function NewsPage() {
                   {article.readTime}
                 </span>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>
