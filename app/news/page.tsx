@@ -139,10 +139,10 @@ export default function NewsPage() {
                   {article.category}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-earth-800 mb-3 line-clamp-2">
+              <h3 className="text-xl font-bold text-earth-800 mb-3" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 {article.title}
               </h3>
-              <p className="text-earth-600 text-sm mb-6 line-clamp-3 leading-relaxed">
+              <p className="text-earth-600 text-sm mb-6 leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                 {article.excerpt}
               </p>
               <div className="flex items-center justify-between pt-4 border-t border-earth-100">
