@@ -34,6 +34,8 @@ export default function Navbar() {
     return pathname === href
   }
 
+  const donateHref = pathname === '/' ? '#donate' : '/#donate'
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -87,7 +89,7 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="/#donate"
+            href={donateHref}
             className="hidden md:inline-flex px-5 py-2.5 bg-gradient-primary text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-coral-500/30 transition-all hover:scale-105 text-sm"
           >
             Donate Now
@@ -131,7 +133,7 @@ export default function Navbar() {
               ))}
               <div className="pt-4 border-t border-coral-100">
                 <Link
-                  href="/#donate"
+                  href={donateHref}
                   className="block w-full text-center px-5 py-3 bg-gradient-primary text-white font-semibold rounded-xl"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
