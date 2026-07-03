@@ -1,5 +1,6 @@
 import { Newspaper, Calendar, ArrowRight, Clock } from 'lucide-react'
 import Image from 'next/image'
+import AdBanner from '@/components/AdBanner'
 
 const newsArticles = [
   {
@@ -85,6 +86,12 @@ export default function NewsPage() {
           </p>
         </div>
 
+        {/* Ad Banner - Top of News */}
+        <div className="mb-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
+          <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
+          <AdBanner slot="1234567893" className="min-h-[250px]" />
+        </div>
+
         {featuredArticle && (
           <div className="mb-12 bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 overflow-hidden">
             <div className="grid md:grid-cols-2">
@@ -128,6 +135,12 @@ export default function NewsPage() {
           </div>
         )}
 
+        {/* Ad Banner - Between Featured and Grid */}
+        <div className="mb-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
+          <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
+          <AdBanner slot="1234567894" className="min-h-[250px]" />
+        </div>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {regularArticles.map((article) => (
             <article
@@ -157,6 +170,12 @@ export default function NewsPage() {
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Ad Banner - Bottom of News */}
+        <div className="mt-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
+          <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
+          <AdBanner slot="1234567895" className="min-h-[250px]" />
         </div>
       </div>
     </div>
