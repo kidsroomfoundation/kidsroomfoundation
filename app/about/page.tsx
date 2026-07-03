@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { Users, Target, Heart, Globe, Shield, Award, BookOpen, Stethoscope, Home, Utensils } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -66,12 +65,7 @@ export default function AboutPage() {
   return (
     <div className="pt-24 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-50 border border-coral-200 mb-6">
             <Users className="w-4 h-4 text-coral-500" />
             <span className="text-sm font-medium text-coral-700">
@@ -85,14 +79,9 @@ export default function AboutPage() {
             Founded in 2021, Kids Room Foundation was born from a simple belief: 
             every child deserves a safe place to grow, learn, and dream.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 p-8 md:p-12 mb-16"
-        >
+        <div className="bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 p-8 md:p-12 mb-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl font-bold text-earth-800 mb-6">
@@ -125,14 +114,9 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-3xl font-bold text-earth-800 text-center mb-12">
             Our Core Values
           </h2>
@@ -153,7 +137,7 @@ export default function AboutPage() {
                 title: 'Borderless Giving',
                 description: 'Crypto knows no borders. Neither does our mission to help every child in need.',
               },
-            ].map((value, index) => (
+            ].map((value) => (
               <div
                 key={value.title}
                 className="bg-white rounded-3xl p-8 shadow-lg shadow-earth-100/50 border border-coral-100/50 text-center"
@@ -170,19 +154,14 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-3xl font-bold text-earth-800 text-center mb-12">
             Our Programs
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {programs.map((program, index) => (
+            {programs.map((program) => (
               <div
                 key={program.title}
                 className="bg-white rounded-3xl p-8 shadow-lg shadow-earth-100/50 border border-coral-100/50 flex gap-6"
@@ -206,19 +185,14 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-3xl font-bold text-earth-800 text-center mb-12">
             Meet the Team
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
+            {team.map((member) => (
               <div
                 key={member.name}
                 className="bg-white rounded-3xl p-6 shadow-lg shadow-earth-100/50 border border-coral-100/50 text-center"
@@ -240,14 +214,9 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-16"
-        >
+        <div className="mb-16">
           <h2 className="text-3xl font-bold text-earth-800 text-center mb-8">
             Our Partners
           </h2>
@@ -261,14 +230,9 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="bg-gradient-to-r from-coral-500 to-earth-500 rounded-3xl p-12 text-center text-white"
-        >
+        <div className="bg-gradient-to-r from-coral-500 to-earth-500 rounded-3xl p-12 text-center text-white">
           <h2 className="text-3xl font-bold mb-4">
             Join Our Mission
           </h2>
@@ -290,7 +254,7 @@ export default function AboutPage() {
               Get in Touch
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   )
