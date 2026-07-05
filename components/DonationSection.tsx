@@ -2,16 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Copy, 
-  Check, 
-  Heart,
-  Shield,
-  Zap,
-  Globe,
-  ExternalLink,
-  Wallet
-} from 'lucide-react'
+import { Copy, Check, Heart, Shield, Zap, Globe, ExternalLink, Wallet } from 'lucide-react'
 
 const WALLET_ADDRESSES = {
   btc: 'bc1qfwvcxf4lxu7pm7zjz4765a0ex3sw6sqv3h2ace',
@@ -27,7 +18,7 @@ const CRYPTO_OPTIONS = [
     id: 'eth',
     name: 'Ethereum',
     symbol: 'ETH',
-    icon: '◈',
+    icon: 'Ξ',
     color: '#627EEA',
     address: WALLET_ADDRESSES.eth,
     chain: 'ERC20',
@@ -57,7 +48,7 @@ const CRYPTO_OPTIONS = [
     id: 'usdt_erc20',
     name: 'USDT',
     symbol: 'USDT',
-    icon: '◈',
+    icon: '₮',
     color: '#26A17B',
     address: WALLET_ADDRESSES.usdt_erc20,
     chain: 'ERC20',
@@ -67,7 +58,7 @@ const CRYPTO_OPTIONS = [
     id: 'usdt_trc20',
     name: 'USDT (TRC20)',
     symbol: 'USDT',
-    icon: '◈',
+    icon: '₮',
     color: '#FF060A',
     address: WALLET_ADDRESSES.usdt_trc20,
     chain: 'TRC20',
@@ -77,7 +68,7 @@ const CRYPTO_OPTIONS = [
     id: 'usdc_erc20',
     name: 'USDC',
     symbol: 'USDC',
-    icon: '◈',
+    icon: '$',
     color: '#2775CA',
     address: WALLET_ADDRESSES.usdc_erc20,
     chain: 'ERC20',
@@ -107,16 +98,13 @@ export default function DonationSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-50 border border-coral-200 mb-6">
             <Heart className="w-4 h-4 text-coral-500" fill="currentColor" />
-            <span className="text-sm font-medium text-coral-700">
-              Make a Difference
-            </span>
+            <span className="text-sm font-medium text-coral-700">Make a Difference</span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-earth-800 mb-4">
             Choose Your <span className="text-gradient">Donation</span>
           </h2>
           <p className="text-lg text-earth-600 max-w-2xl mx-auto">
-            Select your preferred cryptocurrency and send directly to our verified wallet. 
-            Every donation is recorded on the blockchain for complete transparency.
+            Select your preferred cryptocurrency and send directly to our verified wallet. Every donation is recorded on the blockchain for complete transparency.
           </p>
         </motion.div>
 
@@ -129,18 +117,14 @@ export default function DonationSection() {
           >
             <div className="bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 p-8">
               <div className="mb-8">
-                <label className="block text-sm font-semibold text-earth-700 mb-4">
-                  Select Cryptocurrency
-                </label>
+                <label className="block text-sm font-semibold text-earth-700 mb-4">Select Cryptocurrency</label>
                 <div className="grid grid-cols-2 gap-3">
                   {CRYPTO_OPTIONS.map((crypto) => (
                     <button
                       key={crypto.id}
                       onClick={() => setSelectedCrypto(crypto)}
                       className={`flex items-center gap-3 p-4 rounded-2xl border-2 transition-all ${
-                        selectedCrypto.id === crypto.id
-                          ? 'border-coral-400 bg-coral-50'
-                          : 'border-earth-100 hover:border-coral-200'
+                        selectedCrypto.id === crypto.id ? 'border-coral-400 bg-coral-50' : 'border-earth-100 hover:border-coral-200'
                       }`}
                     >
                       <div
@@ -150,12 +134,8 @@ export default function DonationSection() {
                         {crypto.icon}
                       </div>
                       <div className="text-left min-w-0">
-                        <div className="font-semibold text-earth-800 text-sm">
-                          {crypto.name}
-                        </div>
-                        <div className="text-xs text-earth-500">
-                          {crypto.chain}
-                        </div>
+                        <div className="font-semibold text-earth-800 text-sm">{crypto.name}</div>
+                        <div className="text-xs text-earth-500">{crypto.chain}</div>
                       </div>
                     </button>
                   ))}
@@ -204,17 +184,14 @@ export default function DonationSection() {
             className="space-y-6"
           >
             <div className="bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 p-8 text-center">
-              <h3 className="text-xl font-bold text-earth-800 mb-2">
-                Direct Transfer
-              </h3>
-              <p className="text-sm text-earth-500 mb-6">
-                Send {selectedCrypto.symbol} on {selectedCrypto.chain} to this address
-              </p>
-              
-              <div className="w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center text-4xl"
-                style={{ 
+              <h3 className="text-xl font-bold text-earth-800 mb-2">Direct Transfer</h3>
+              <p className="text-sm text-earth-500 mb-6">Send {selectedCrypto.symbol} on {selectedCrypto.chain} to this address</p>
+
+              <div
+                className="w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center text-4xl"
+                style={{
                   backgroundColor: selectedCrypto.color + '15',
-                  color: selectedCrypto.color 
+                  color: selectedCrypto.color,
                 }}
               >
                 {selectedCrypto.icon}
@@ -228,7 +205,7 @@ export default function DonationSection() {
                   {selectedCrypto.address}
                 </code>
               </div>
-              
+
               <button
                 onClick={handleCopyAddress}
                 className="w-full py-3 px-4 bg-earth-800 text-white font-semibold rounded-xl hover:bg-earth-700 transition-colors flex items-center justify-center gap-2"
@@ -259,17 +236,13 @@ export default function DonationSection() {
             </div>
 
             <div className="bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 p-6">
-              <h3 className="text-lg font-bold text-earth-800 mb-4">
-                All Donation Addresses
-              </h3>
+              <h3 className="text-lg font-bold text-earth-800 mb-4">All Donation Addresses</h3>
               <div className="space-y-3">
                 {CRYPTO_OPTIONS.map((crypto) => (
-                  <div 
+                  <div
                     key={crypto.id}
                     className={`flex items-center gap-3 p-3 rounded-xl transition-all cursor-pointer ${
-                      selectedCrypto.id === crypto.id 
-                        ? 'bg-coral-50 border border-coral-200' 
-                        : 'bg-earth-50 hover:bg-earth-100'
+                      selectedCrypto.id === crypto.id ? 'bg-coral-50 border border-coral-200' : 'bg-earth-50 hover:bg-earth-100'
                     }`}
                     onClick={() => setSelectedCrypto(crypto)}
                   >
@@ -283,34 +256,11 @@ export default function DonationSection() {
                       <div className="text-sm font-semibold text-earth-700">
                         {crypto.name} <span className="text-earth-400">({crypto.chain})</span>
                       </div>
-                      <div className="text-xs text-earth-500 truncate font-mono">
-                        {crypto.address}
-                      </div>
+                      <div className="text-xs text-earth-500 truncate font-mono">{crypto.address}</div>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { icon: Shield, label: 'Secure', desc: 'Verified Addresses' },
-                { icon: Zap, label: 'Fast', desc: 'Direct Transfer' },
-                { icon: Globe, label: 'Global', desc: 'No Borders' },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-white rounded-2xl p-4 text-center border border-coral-100/50"
-                >
-                  <item.icon className="w-6 h-6 text-coral-500 mx-auto mb-2" />
-                  <div className="font-semibold text-earth-800 text-sm">
-                    {item.label}
-                  </div>
-                  <div className="text-xs text-earth-500 mt-1">
-                    {item.desc}
-                  </div>
-                </div>
-              ))}
             </div>
           </motion.div>
         </div>
