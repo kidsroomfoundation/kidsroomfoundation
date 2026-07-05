@@ -30,33 +30,6 @@ const newsArticles = [
     category: 'Guide',
     featured: false,
   },
-  {
-    id: 4,
-    title: 'Partnership Announced: Kids Room Foundation x UNICEF Blockchain Initiative',
-    excerpt: 'We are proud to announce a strategic partnership with UNICEF\'s blockchain initiative to expand our reach and improve transparency in charitable giving.',
-    date: 'May 22, 2024',
-    readTime: '2 min read',
-    category: 'Partnership',
-    featured: false,
-  },
-  {
-    id: 5,
-    title: 'Q2 2024 Transparency Report Published',
-    excerpt: 'Our quarterly transparency report is now live. See exactly how every dollar was spent, from education programs to healthcare initiatives and operational costs.',
-    date: 'May 1, 2024',
-    readTime: '5 min read',
-    category: 'Report',
-    featured: false,
-  },
-  {
-    id: 6,
-    title: 'How Blockchain is Revolutionizing Charity Transparency',
-    excerpt: 'An in-depth look at how blockchain technology is changing the way charities operate, with real examples from our own donation tracking system.',
-    date: 'April 18, 2024',
-    readTime: '7 min read',
-    category: 'Education',
-    featured: false,
-  },
 ]
 
 export const metadata = {
@@ -74,22 +47,11 @@ export default function NewsPage() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-coral-50 border border-coral-200 mb-6">
             <Newspaper className="w-4 h-4 text-coral-500" />
-            <span className="text-sm font-medium text-coral-700">
-              News & Updates
-            </span>
+            <span className="text-sm font-medium text-coral-700">News & Updates</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-earth-800 mb-4">
             Latest from <span className="text-gradient">Kids Room</span>
           </h1>
-          <p className="text-lg text-earth-600 max-w-2xl mx-auto">
-            Stories, updates, and insights from our mission to help children worldwide.
-          </p>
-        </div>
-
-        {/* Ad Banner - Top of News */}
-        <div className="mb-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
-          <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-          <AdBanner slot="8150475435765548" className="min-h-[250px]" />
         </div>
 
         {featuredArticle && (
@@ -97,85 +59,24 @@ export default function NewsPage() {
             <div className="grid md:grid-cols-2">
               <div className="bg-gradient-to-br from-coral-100 to-earth-100 p-12 flex items-center justify-center">
                 <div className="relative w-32 h-32">
-                  <Image
-                    src="/images/logo.png"
-                    alt="Featured"
-                    fill
-                    className="object-contain"
-                  />
+                  <Image src="/images/logo.png" alt="Featured" fill className="object-contain" />
                 </div>
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="px-3 py-1 bg-coral-100 text-coral-700 text-xs font-semibold rounded-full">
-                    {featuredArticle.category}
-                  </span>
-                  <span className="text-sm text-earth-400 flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {featuredArticle.date}
-                  </span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-4">
-                  {featuredArticle.title}
-                </h2>
-                <p className="text-earth-600 mb-6 leading-relaxed">
-                  {featuredArticle.excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-earth-400 flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    {featuredArticle.readTime}
-                  </span>
-                  <button className="inline-flex items-center gap-2 text-coral-600 font-semibold hover:text-coral-700 transition-colors">
-                    Read More <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-4">{featuredArticle.title}</h2>
+                <p className="text-earth-600 mb-6">{featuredArticle.excerpt}</p>
               </div>
             </div>
           </div>
         )}
 
-        {/* Ad Banner - Between Featured and Grid */}
-        <div className="mb-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
-          <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-          <AdBanner slot="8150475435765548" className="min-h-[250px]" />
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {regularArticles.map((article) => (
-            <article
-              key={article.id}
-              className="bg-white rounded-3xl shadow-lg shadow-earth-100/50 border border-coral-100/50 p-6 hover:shadow-xl transition-all hover:-translate-y-1"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="px-3 py-1 bg-earth-100 text-earth-600 text-xs font-semibold rounded-full">
-                  {article.category}
-                </span>
-              </div>
-              <h3 className="text-xl font-bold text-earth-800 mb-3" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                {article.title}
-              </h3>
-              <p className="text-earth-600 text-sm mb-6 leading-relaxed" style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                {article.excerpt}
-              </p>
-              <div className="flex items-center justify-between pt-4 border-t border-earth-100">
-                <span className="text-xs text-earth-400 flex items-center gap-1">
-                  <Calendar className="w-3 h-3" />
-                  {article.date}
-                </span>
-                <span className="text-xs text-earth-400 flex items-center gap-1">
-                  <Clock className="w-3 h-3" />
-                  {article.readTime}
-                </span>
-              </div>
+            <article key={article.id} className="bg-white rounded-3xl shadow-lg shadow-earth-100/50 border border-coral-100/50 p-6">
+              <h3 className="text-xl font-bold text-earth-800 mb-3">{article.title}</h3>
+              <p className="text-earth-600 text-sm mb-6">{article.excerpt}</p>
             </article>
           ))}
-        </div>
-
-        {/* Ad Banner - Bottom of News */}
-        <div className="mt-12 bg-white rounded-2xl shadow-sm border border-coral-100/50 p-4">
-          <p className="text-xs text-earth-400 text-center mb-2">Advertisement</p>
-          <AdBanner slot="8150475435765548" className="min-h-[250px]" />
         </div>
       </div>
     </div>
