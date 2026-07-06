@@ -2,9 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { marked } from 'marked'
-import { Newspaper, Calendar, ArrowRight, Clock } from 'lucide-react'
+import { Newspaper, Calendar, Clock } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 import AdBanner from '@/components/AdBanner'
 
 interface Article {
@@ -19,11 +18,9 @@ interface Article {
   content: string
 }
 
-// Node logic to fetch all local markdown files dynamically
 function getLocalArticles(): Article[] {
   const newsDirectory = path.join(process.cwd(), 'content/news')
   
-  // Create directory if it doesn't exist yet to prevent build crashes
   if (!fs.existsSync(newsDirectory)) {
     fs.mkdirSync(newsDirectory, { recursive: true })
     return []
@@ -38,7 +35,6 @@ function getLocalArticles(): Article[] {
       const fullPath = path.join(newsDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
       
-      // Parse frontmatter metadata
       const { data, content } = matter(fileContents)
 
       return {
@@ -49,12 +45,11 @@ function getLocalArticles(): Article[] {
         readTime: data.readTime || '3 min read',
         category: data.category || 'Update',
         featured: data.featured || false,
-        image: data.image || '/images/logo.png', // Fallback to logo image
+        image: data.image || '/images/logo.png',
         content: content,
       } as Article
     })
 
-  // Sort articles by date descending
   return articles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 
@@ -67,6 +62,9 @@ export default function NewsPage() {
   const articles = getLocalArticles()
   const featuredArticle = articles.find((a) => a.featured) || articles[0]
   const regularArticles = articles.filter((a) => a.slug !== featuredArticle?.slug)
+
+  // Pre-render the markdown content to safe HTML string
+  const featuredHtmlContent = featuredArticle ? marked(featuredArticle.content) : ''
 
   return (
     <div className="pt-24 pb-24">
@@ -92,45 +90,45 @@ export default function NewsPage() {
           <AdBanner slot="8150475435765548" className="min-h-[250px]" />
         </div>
 
-        {/* Featured Article Layout */}
+        {/* Featured Article Content Display */}
         {featuredArticle && (
           <div className="mb-12 bg-white rounded-3xl shadow-xl shadow-earth-100/50 border border-coral-100/50 overflow-hidden">
-            <div className="grid md:grid-cols-2">
-              <div className="relative min-h-[300px] bg-gradient-to-br from-coral-100 to-earth-100 p-12 flex items-center justify-center">
-                <Image
-                  src={featuredArticle.image}
-                  alt={featuredArticle.title}
-                  fill
-                  className="object-cover"
-                />
+            <div className="relative h-[400px] w-full bg-earth-100">
+              <Image
+                src={featuredArticle.image}
+                alt={featuredArticle.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <div className="p-8 md:p-12 max-w-4xl mx-auto">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="px-3 py-1 bg-coral-100 text-coral-700 text-xs font-semibold rounded-full">
+                  {featuredArticle.category}
+                </span>
+                <span className="text-sm text-earth-400 flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  {featuredArticle.date}
+                </span>
+                <span className="text-sm text-earth-400 flex items-center gap-1 ml-auto">
+                  <Clock className="w-3 h-3" />
+                  {featuredArticle.readTime}
+                </span>
               </div>
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="px-3 py-1 bg-coral-100 text-coral-700 text-xs font-semibold rounded-full">
-                    {featuredArticle.category}
-                  </span>
-                  <span className="text-sm text-earth-400 flex items-center gap-1">
-                    <Calendar className="w-3 h-3" />
-                    {featuredArticle.date}
-                  </span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-bold text-earth-800 mb-4">
-                  {featuredArticle.title}
-                </h2>
-                <p className="text-earth-600 mb-6 leading-relaxed">
-                  {featuredArticle.excerpt}
-                </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-earth-400 flex items-center gap-1">
-                    <Clock className="w-3 h-3" />
-                    {featuredArticle.readTime}
-                  </span>
-                  {/* For full production layout, link this to an individual /news/[slug] page if desired */}
-                  <span className="inline-flex items-center gap-2 text-coral-600 font-semibold cursor-pointer hover:text-coral-700 transition-colors">
-                    Read Markdown File Below <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
+              
+              <h2 className="text-3xl md:text-4xl font-bold text-earth-800 mb-8 leading-tight">
+                {featuredArticle.title}
+              </h2>
+              
+              {/* Dynamically parsed markdown container rendering the text directly */}
+              <div 
+                className="prose prose-earth max-w-none text-earth-700 space-y-6 leading-relaxed
+                           prose-headings:text-earth-800 prose-headings:font-bold prose-headings:mt-8
+                           prose-blockquote:border-l-4 prose-blockquote:border-coral-500 prose-blockquote:pl-4 prose-blockquote:italic
+                           prose-ul:list-disc prose-ul:pl-6 prose-li:my-2"
+                dangerouslySetInnerHTML={{ __html: featuredHtmlContent }}
+              />
             </div>
           </div>
         )}
