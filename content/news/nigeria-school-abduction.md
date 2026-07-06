@@ -5,7 +5,7 @@ date: "June 29, 2026"
 readTime: "4 min read"
 category: "Urgent Update"
 featured: true
-image: "/images/logo.png"
+image: "/images/news/nigeria-school-attack.jpg"
 ---
 
 Gunmen attacked and kidnapped students taking secondary school examinations in conflict-battered Borno state in northeastern Nigeria, police said Monday.
