@@ -104,7 +104,7 @@ export default function ContactPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-earth-700 mb-2">
                       Subject
@@ -124,7 +124,7 @@ export default function ContactPage() {
                       <option value="general">General Inquiry</option>
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-earth-700 mb-2">
                       Message
@@ -139,7 +139,7 @@ export default function ContactPage() {
                       placeholder="Tell us how we can help..."
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     className="w-full py-4 bg-gradient-primary text-white font-bold rounded-2xl hover:shadow-lg hover:shadow-coral-500/30 transition-all hover:scale-[1.02] flex items-center justify-center gap-2"
@@ -194,18 +194,33 @@ export default function ContactPage() {
               <div className="w-12 h-12 rounded-2xl bg-warm-100 flex items-center justify-center mb-4">
                 <Phone className="w-6 h-6 text-warm-600" />
               </div>
-              <h3 className="text-lg font-bold text-earth-800 mb-2">
-                Phone
+              <h3 className="text-lg font-bold text-earth-800 mb-3">
+                Phone Contact
               </h3>
-              <p className="text-earth-600 text-sm mb-3">
-                Mon-Fri, 9am - 6pm EST
-              </p>
-              <a
-                href="tel:+1-555-KIDS-ROOM"
-                className="text-coral-600 font-semibold hover:text-coral-700 transition-colors"
-              >
-                +1 (555) 543-7766
-              </a>
+              <div className="space-y-3">
+                <div>
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-earth-400">
+                    US Headquarters
+                  </span>
+                  <a
+                    href="tel:+1-917-259-0546"
+                    className="text-coral-600 font-semibold hover:text-coral-700 transition-colors text-sm"
+                  >
+                    +1 (917) 259-0546
+                  </a>
+                </div>
+                <div className="pt-2 border-t border-earth-100">
+                  <span className="block text-xs font-semibold uppercase tracking-wider text-earth-400">
+                    UK Office
+                  </span>
+                  <a
+                    href="tel:+44-7418611342"
+                    className="text-coral-600 font-semibold hover:text-coral-700 transition-colors text-sm"
+                  >
+                    +44 7418611342
+                  </a>
+                </div>
+              </div>
             </div>
 
             <div className="bg-white rounded-3xl shadow-lg shadow-earth-100/50 border border-coral-100/50 p-8">
