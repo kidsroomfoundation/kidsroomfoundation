@@ -1,21 +1,21 @@
 'use client'
 
-import { Heart, Github, Twitter, MessageCircle, Mail, ArrowUp } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
+import Image from 'next/image'
+import { Instagram, Twitter, Mail, MapPin, Heart } from 'lucide-react'
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-earth-900 text-earth-300 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-4 gap-12">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="relative w-12 h-12">
+    <footer className="bg-earth-900 text-earth-50 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 border-b border-earth-800 pb-12">
+          
+          {/* Brand & About */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="inline-block mb-6">
+              <div className="relative w-40 h-12">
                 <Image
                   src="/images/logo.png"
                   alt="Kids Room Foundation"
@@ -23,107 +23,107 @@ export default function Footer() {
                   className="object-contain brightness-0 invert"
                 />
               </div>
-              <div>
-                <span className="text-xl font-bold text-white block leading-tight">
-                  Kids Room Foundation
-                </span>
-                <span className="text-sm text-coral-300">
-                  Every Child Deserves a Safe Place to Grow
-                </span>
-              </div>
-            </div>
-            <p className="text-earth-400 leading-relaxed mb-6 max-w-md">
-              Building a transparent future for charitable giving. Every crypto 
-              donation is tracked on the blockchain, ensuring your contribution 
-              reaches children in need.
+            </Link>
+            <p className="text-earth-400 text-sm leading-relaxed mb-6">
+              Leveraging blockchain technology to create a more transparent, efficient, and accessible way to support children in need worldwide.
             </p>
-            <div className="flex gap-4">
-              {[
-                { icon: Twitter, href: 'https://x.com/kidsroomfund', label: 'Twitter' },
-                { icon: MessageCircle, href: '#', label: 'Discord' },
-                { icon: Github, href: '#', label: 'GitHub' },
-                { icon: Mail, href: 'mailto:hello@kidsroomfoundation.com', label: 'Email' },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 rounded-xl bg-earth-800 flex items-center justify-center hover:bg-coral-600 transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
+            <Link 
+              href="/donate" 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-coral-500 hover:bg-coral-400 text-white text-sm font-semibold rounded-lg transition-colors"
+            >
+              <Heart className="w-4 h-4" />
+              Donate Now
+            </Link>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-bold text-white mb-6">Quick Links</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link href="/about" className="text-earth-400 hover:text-coral-400 transition-colors text-sm">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/news" className="text-earth-400 hover:text-coral-400 transition-colors text-sm">
+                  News & Updates
+                </Link>
+              </li>
+              <li>
+                <Link href="/transparency" className="text-earth-400 hover:text-coral-400 transition-colors text-sm">
+                  Financial Transparency
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-earth-400 hover:text-coral-400 transition-colors text-sm">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-bold text-white mb-6">Contact</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-earth-400 text-sm">
+                <MapPin className="w-5 h-5 text-coral-500 shrink-0" />
+                <span>
+                  123 Charity Lane, Suite 400<br />
+                  New York, NY 10001<br />
+                  United States
+                </span>
+              </li>
+              <li className="flex items-center gap-3 text-earth-400 text-sm">
+                <Mail className="w-5 h-5 text-coral-500 shrink-0" />
+                <a href="mailto:hello@kidsroomfoundation.com" className="hover:text-coral-400 transition-colors">
+                  hello@kidsroomfoundation.com
                 </a>
-              ))}
+              </li>
+            </ul>
+          </div>
+
+          {/* Socials */}
+          <div>
+            <h3 className="text-lg font-bold text-white mb-6">Follow Us</h3>
+            <div className="flex flex-col space-y-4">
+              <a 
+                href="https://instagram.com/kidsroomfoundation" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-earth-400 hover:text-coral-400 transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-full bg-earth-800 flex items-center justify-center group-hover:bg-coral-500/20 transition-colors">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <span className="text-sm font-medium">@kidsroomfoundation</span>
+              </a>
+              <a 
+                href="https://twitter.com/kidsroomfund" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-earth-400 hover:text-coral-400 transition-colors group"
+              >
+                <div className="w-10 h-10 rounded-full bg-earth-800 flex items-center justify-center group-hover:bg-coral-500/20 transition-colors">
+                  <Twitter className="w-5 h-5" />
+                </div>
+                <span className="text-sm font-medium">@kidsroomfund</span>
+              </a>
             </div>
           </div>
 
-          <div>
-            <h4 className="text-white font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              {[
-                { name: 'Home', href: '/' },
-                { name: 'Donate', href: '/#donate' },
-                { name: 'News', href: '/news' },
-                { name: 'About Us', href: '/about' },
-                { name: 'Contact', href: '/contact' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-earth-400 hover:text-coral-300 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-6">Resources</h4>
-            <ul className="space-y-3">
-              {[
-                { name: 'How to Donate Crypto', href: '/#donate' },
-                { name: 'Tax Information', href: '/about' },
-                { name: 'FAQ', href: '/contact' },
-                { name: 'Partnerships', href: '/contact' },
-                { name: 'Privacy Policy', href: '/privacy' },
-                { name: 'Terms of Service', href: '/terms' },
-              ].map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-earth-400 hover:text-coral-300 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-earth-800 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-earth-500">
-            © 2024 Kids Room Foundation. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-earth-500">
-            <Link href="/privacy" className="hover:text-coral-300 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="hover:text-coral-300 transition-colors">
-              Terms of Service
-            </Link>
+        {/* Copyright */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-earth-500">
+          <p>© {currentYear} Kids Room Foundation. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-coral-400 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-coral-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
-
-      <button
-        onClick={scrollToTop}
-        className="absolute bottom-8 right-8 w-12 h-12 bg-coral-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-coral-700 transition-colors"
-        aria-label="Back to top"
-      >
-        <ArrowUp className="w-5 h-5" />
-      </button>
     </footer>
   )
 }
