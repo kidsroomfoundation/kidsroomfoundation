@@ -92,6 +92,7 @@ export default function Footer() {
                 href="https://instagram.com/kidsroomfoundation" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Follow Kids Room Foundation on Instagram"
                 className="flex items-center gap-3 text-earth-400 hover:text-coral-400 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-earth-800 flex items-center justify-center group-hover:bg-coral-500/20 transition-colors">
@@ -103,6 +104,7 @@ export default function Footer() {
                 href="https://twitter.com/kidsroomfund" 
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Follow Kids Room Foundation on Twitter"
                 className="flex items-center gap-3 text-earth-400 hover:text-coral-400 transition-colors group"
               >
                 <div className="w-10 h-10 rounded-full bg-earth-800 flex items-center justify-center group-hover:bg-coral-500/20 transition-colors">
