@@ -1,4 +1,4 @@
-'use client' // Error components must be Client Components
+'use client'
 
 import { useEffect } from 'react'
 import { AlertTriangle, RefreshCcw } from 'lucide-react'
@@ -11,7 +11,6 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
-    // Vercel handles error logging, but you can also log to Sentry here if added later
     console.error(error)
   }, [error])
 
