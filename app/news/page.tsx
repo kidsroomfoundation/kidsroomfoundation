@@ -63,7 +63,6 @@ export default function NewsPage() {
   const featuredArticle = articles.find((a) => a.featured) || articles[0]
   const regularArticles = articles.filter((a) => a.slug !== featuredArticle?.slug)
 
-  // Use marked.parse() for version 18+ compatibility
   const featuredHtmlContent = featuredArticle ? marked.parse(featuredArticle.content) as string : ''
 
   return (
@@ -121,7 +120,6 @@ export default function NewsPage() {
                 {featuredArticle.title}
               </h2>
               
-              {/* Dynamically parsed markdown container rendering the text directly */}
               <div 
                 className="prose prose-earth max-w-none text-earth-700 space-y-6 leading-relaxed
                            prose-headings:text-earth-800 prose-headings:font-bold prose-headings:mt-8
