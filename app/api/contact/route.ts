@@ -5,7 +5,6 @@ export async function POST(request: Request) {
     const body = await request.json()
     const { name, email, subject, message } = body
 
-    // 1. Basic validation
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Name, email, and message are required.' },
@@ -23,10 +22,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // 2. Send the request to Resend API
-    // NOTE: By default, Resend onboarding keys require sending from 'onboarding@resend.dev'
-    // and can only send to your own registered account email.
-    // Once you verify your domain (kidsroomfoundation.com) in Resend, change the "from" address below!
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -35,8 +30,8 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: 'Kids Room Site <onboarding@resend.dev>',
-        to: ['hello@kidsroomfoundation.com'], // Change this to your preferred inbox email
-        reply_to: email, // This lets you click "Reply" directly to the user who wrote you
+        to: ['hello@kidsroomfoundation.com'],
+        reply_to: email,
         subject: `[Contact Form] ${subject || 'New Message'}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333;">
