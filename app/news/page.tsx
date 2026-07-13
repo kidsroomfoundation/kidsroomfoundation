@@ -63,8 +63,8 @@ export default function NewsPage() {
   const featuredArticle = articles.find((a) => a.featured) || articles[0]
   const regularArticles = articles.filter((a) => a.slug !== featuredArticle?.slug)
 
-  // Pre-render the markdown content to safe HTML string
-  const featuredHtmlContent = featuredArticle ? marked(featuredArticle.content) : ''
+  // Use marked.parse() for version 18+ compatibility
+  const featuredHtmlContent = featuredArticle ? marked.parse(featuredArticle.content) as string : ''
 
   return (
     <div className="pt-24 pb-24">
