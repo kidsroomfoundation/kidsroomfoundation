@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 interface AdBannerProps {
   slot: string
@@ -9,12 +9,17 @@ interface AdBannerProps {
 }
 
 export default function AdBanner({ slot, style, className }: AdBannerProps) {
+  const adLoaded = useRef(false)
+
   useEffect(() => {
-    try {
-      // @ts-ignore
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-    } catch (e) {
-      console.error('AdSense error:', e)
+    if (!adLoaded.current) {
+      try {
+        // @ts-ignore
+        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+        adLoaded.current = true
+      } catch (e) {
+        console.error('AdSense error:', e)
+      }
     }
   }, [])
 
